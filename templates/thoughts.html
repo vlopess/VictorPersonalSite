@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block page_image %}
+<img class="image" id="ProjetosImage" align="right" src="https://i0.wp.com/media.giphy.com/media/udK21RQeWtaGQ/giphy.gif?resize=688%2C491&is-pending-load=1#038;ssl=1"
+            alt="GIF"/>
+{% endblock %}  
+{% block page_navigation %}
+  <A href="{{url_for('index')}}">
+  <div class="tab-control">Home</div>
+  </A>
+  <A href="{{url_for('aboutme')}}">
+  <div class="tab-control" >Sobre mim</div>
+  </A>
+  <A href="{{url_for('recomendacoes')}}">
+  <div class="tab-control">Recomendações</div>
+  </A>
+  <A href="{{url_for('thoughts')}}">
+  <div class="tab-control-active">Thoughts</div>
+  </A>
+  <A href="{{url_for('projetos')}}">
+  <div class="tab-control">Projetos</div>
+  </A>
+  <A href="{{url_for('contato')}}">
+  <div class="tab-control">Contato</div>
+  </A>
+{% endblock %}
+{% block page_content %}
+<nav>
+  <ul>
+      {% for i in data %}            
+                <div class='comment'>
+                  <div class='netuno'></div>
+                  <div style='display: block;'>                  
+                    <div class='content'><p>{{i.texto}}</p></div>
+                    <p style="text-align: right; bottom: 0px;">{{i.time}}</p>
+                  </div>
+                </div>            
+      {% endfor %}
+  </ul>
+</nav>
+{% endblock %}
+{% block message %}
+  <div class="container">
+     {% for message in get_flashed_messages() %}
+       <div style="border: 1px solid #2f9e44; margin: 10 auto; width: 250px;   background: #25292d;">
+         <p style="text-align:center; color: #2f9e44; margin:0;">{{ message }}</p>
+       </div>
+     {% endfor %}
+  </div>
+{% endblock %}

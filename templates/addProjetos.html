@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block page_content %}
+<form action="/projetos/addProjetos" method="POST">    
+    <div>
+        <label for="password" style='margin:10px;'>Password</label><br>
+        <input type="password" style='margin:10px;' name="password" placeholder="Password" required>
+    </div>
+    <div>
+        <label for="password" style='margin:10px;'>Título</label><br>
+        <textarea type="text" name="titulo" placeholder="Digite o titulo do projeto" style="margin:10px; width: 172px; height: 50px; resize:none;" required></textarea>
+    </div>
+    <div>
+      <label for="password" style='margin:10px;'>Link</label><br>
+      <input type="text" style='margin:10px;' name="link" placeholder="Digite o link do projeto" required>
+    </div>
+    <div class="submit">
+        <button type="submit" style="margin:10px; background-color: black; color:#2f9e44;">Add</button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block page_navigation %}
+  <A href="{{url_for('index')}}">
+  <div class="tab-control-active">Home</div>
+  </A>
+  <A href="{{url_for('aboutme')}}">
+  <div class="tab-control" >Sobre mim</div>
+  </A>
+  <A href="{{url_for('recomendacoes')}}">
+  <div class="tab-control">Recomendações</div>
+  </A>
+  <A href="{{url_for('thoughts')}}">
+  <div class="tab-control">Thoughts</div>
+  </A>
+  <A href="{{url_for('projetos')}}">
+  <div class="tab-control">Projetos</div>
+  </A>
+  <A href="{{url_for('contato')}}">
+  <div class="tab-control">Contato</div>
+  </A>
+{% endblock %} 
+
+{% block page_image %}
+          <img class="image" id="HomeImage" align="right" src="https://wired-7.org/lain/src/1579789720640.gif"
+            alt="GIF" />
+{% endblock %}
+{% block page_content %}
+              <div id="Home">
+              <h2>Howdy Folks,               
+              {% if hour < 12 %}
+                    Bom dia
+                {% elif hour < 18 %}
+                    Boa tarde
+                  {% else %}
+                      Boa noite
+                {% endif %}!</h2>
+              <p>Seja bem-vindo(a) ao meu espaço. Aqui, compartilho um pouco sobre mim e meu desenvolvimento na
+                programação. Você encontrará alguns projetos de aprendizado que desenvolvi e os artigos que escrevi.
+                <b>Grato pela visita!</b></p>
+              <section >
+                <h3>Último Projeto</h3>
+                <ul class="lastProject" type="Square">
+                  <li><a href={{projeto.url}} target="_blank">{{projeto.name}}</a></li>
+                </ul>
+              </section>
+              <section class='sectionArticle'>
+                <h3>Último Artigo</h3>
+                <div>
+                    <div class="article">
+                      <a href={{artigo.url}} target="_blank">
+                        <img src={{artigo.thumbnail}}>
+                        <h1>{{artigo.title}}</h1>
+                        <h3>{{artigo.pubDate}}</h3>
+                       </a>
+                    </div>                 
+                </div>
+              </section>
+            </div>         
+{% endblock %}

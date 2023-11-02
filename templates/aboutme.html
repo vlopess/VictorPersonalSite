@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block page_image %}
+<img class="image" id="Sobre mimImage" align="right" src="https://c.tenor.com/CgGUXc-LDc4AAAAM/hacker-pc.gif"
+            alt="GIF" />
+{% endblock %}
+{% block page_navigation %}
+  <A href="{{url_for('index')}}">
+  <div class="tab-control">Home</div>
+  </A>
+  <A href="{{url_for('aboutme')}}">
+  <div class="tab-control-active" >Sobre mim</div>
+  </A>
+  <A href="{{url_for('recomendacoes')}}">
+  <div class="tab-control">Recomendações</div>
+  </A>
+  <A href="{{url_for('thoughts')}}">
+  <div class="tab-control">Thoughts</div>
+  </A>
+  <A href="{{url_for('projetos')}}">
+  <div class="tab-control">Projetos</div>
+  </A>
+  <A href="{{url_for('contato')}}">
+  <div class="tab-control">Contato</div>
+  </A>
+{% endblock %} 
+{% block page_content %}
+                <div id="Sobre mim">
+              <H2>Sobre mim...</H2>
+              <div id="result"></div>
+              <div class="bio">
+                <IMG id="face" src="static/images/me.jpg" width="100" height="100" class="face-image" alt="Esse sou eu" />
+                <div class="bio-text">
+                  <p>
+                    Olá a todos! Meu nome é Victor e sou um estudante de Análise e Desenvolvimento de Sistemas no IFBA.
+                    Atualmente estudando programação Web. Minha jornada no mundo da programação começou a um pouco mais
+                    de um ano, e desde então, tenho me dedicado a aprimorar minhas habilidades. No meu tempo livre,
+                    gosto de assistir filmes, buscando entender melhor a vida. Além disso, a música é minha paixão e um
+                    refúgio da realidade. Minha banda favorita é <a href={{favorito.url}}>{{favorito.name}}</a>. Últimamente tenho escutado
+                    bastante <a href={{musica.url}}>{{musica.name}}-{{musica.artista}}</a>. Se você quiser trocar ideias, discutir filmes ou compartilhar
+                    músicas inspiradoras, e claro, falar sobre programação, sinta-se à vontade para entrar em contato
+                    comigo!
+
+                  </p>
+                </div>
+                <div id="CurrentySong"></div>
+              </div>
+            </div>                
+{% endblock %}
+
+
+

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block scripts %}
+        <script src="{{ url_for('static', filename='JS/script.js') }}"></script>
+{% endblock %}
+{% block page_image %}
+<img class="image" id="ProjetosImage" align="right" src="https://i.makeagif.com/media/6-19-2015/dr5glG.gif
+" alt="GIF"/>
+{% endblock %}  
+
+{% block page_navigation %}
+  <A href="{{url_for('index')}}">
+  <div class="tab-control">Home</div>
+  </A>
+  <A href="{{url_for('aboutme')}}">
+  <div class="tab-control" >Sobre mim</div>
+  </A>
+  <A href="{{url_for('recomendacoes')}}">
+  <div class="tab-control-active">Recomendações</div>
+  </A>
+  <A href="{{url_for('thoughts')}}">
+  <div class="tab-control">Thoughts</div>
+  </A>
+  <A href="{{url_for('projetos')}}">
+  <div class="tab-control">Projetos</div>
+  </A>
+  <A href="{{url_for('contato')}}">
+  <div class="tab-control">Contato</div>
+  </A>
+{% endblock %} 
+{% block page_content %}
+<div class='slider-wrapper'>
+  <div class='slider-list'>    
+    {% for i in data %}
+      {% if loop.index0 < 2 %}
+        <a href='{{i.url}}' target='_blank'><div class='slider' id="{{loop.index0}}"><h3>{{i.tipo}}</h3><br><img src='{{i.image_url}}'><br><p>{{i.texto}}</p><br></div></a>
+      {% else %}
+        <a href='{{i.url}}' target='_blank'><div class='slider' id="{{loop.index0}}" style="display: none;"><h3>{{i.tipo}}</h3><br><img src='{{i.image_url}}'><br><p>{{i.texto}}</p><br></div></a>     
+      {% endif %}     
+    {% endfor %}
+  </div>
+</div>
+<button style="float:left; background-color: black; color:#2f9e44;" id="prevButton"><</button>
+<button style="float:right; background-color: black; color:#2f9e44;" id="nextButton">></button>
+{% endblock %}
+{% block message %}
+  <div class="container">
+     {% for message in get_flashed_messages() %}
+       <div style="border: 1px solid #2f9e44; margin: 10 auto; width: 250px;   background: #25292d;">
+         <p style="text-align:center; color: #2f9e44; margin:0;">{{ message }}</p>
+       </div>
+     {% endfor %}
+  </div>
+{% endblock %}

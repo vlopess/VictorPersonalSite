@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block page_image %}
+<img class="image" id="ProjetosImage" align="right" src="https://giffiles.alphacoders.com/171/171294.gif"
+            alt="GIF"/>
+{% endblock %}        
+
+{% block page_navigation %}
+  <A href="{{url_for('index')}}">
+  <div class="tab-control">Home</div>
+  </A>
+  <A href="{{url_for('aboutme')}}">
+  <div class="tab-control" >Sobre mim</div>
+  </A>
+  <A href="{{url_for('recomendacoes')}}">
+  <div class="tab-control">Recomendações</div>
+  </A>
+  <A href="{{url_for('thoughts')}}">
+  <div class="tab-control">Throughts</div>
+  </A>
+  <A href="{{url_for('projetos')}}">
+  <div class="tab-control-active">Projetos</div>
+  </A>
+  <A href="{{url_for('contato')}}">
+  <div class="tab-control">Contato</div>
+  </A>
+{% endblock %}
+
+{% block page_content %}
+              <div id="Projetos">
+              <h2>Projetos</h2>
+              <ul id="listProjetos">   
+                {% for projeto in projetos %}
+                  <li class="lista"><a href={{projeto.url}} target="_blank">{{projeto.name}}</a></li>
+                {% endfor %}
+              </ul>
+            </div>        
+
+{% endblock %}
+{% block message %}
+  <div class="container">
+     {% for message in get_flashed_messages() %}
+       <div style="border: 1px solid #2f9e44; margin: 10 auto; width: 250px;   background: #25292d;">
+         <p style="text-align:center; color: #2f9e44; margin:0;">{{ message }}</p>
+       </div>
+     {% endfor %}
+  </div>
+{% endblock %}
