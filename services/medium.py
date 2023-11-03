@@ -1,7 +1,7 @@
 import requests
 import json
 from requests.exceptions import HTTPError
-from Artigo import Artigo
+from models.Artigo import Artigo
 
 def getDadosFromMedium():
   try:

@@ -9,3 +9,6 @@ class Dica:
       self.texto = texto
       self.image_url = image_url
       self.tipo = tipo      
+    
+    def __str__(self) -> str:
+       return f'[{self.url}, {self.texto}, {self.image_url}, {self.tipo}]'
