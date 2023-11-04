@@ -1,5 +1,4 @@
 instance/
-.vscode/
 __pycache__/
 .breakpoints
 .replit
