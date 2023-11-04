@@ -1,3 +1,9 @@
 instance/
 .vscode/
 __pycache__/
+.breakpoints
+.replit
+Pipfile
+poetry.lock
+pyproject.toml
+replit.nix

@@ -2,20 +2,20 @@ import pathlib
 import sys
 from flask import Flask, render_template, request, make_response, flash
 from flask.helpers import redirect
-from models.Dica import Dica
-from services.Cryptografy import Crypt
-from services.lastfm import LastFmController
-from services.medium import getDadosFromMedium
-from services.password import PasswordController
-from services.projetos import ProjetosController
+from myapp.models.Dica import Dica
+from myapp.services.Cryptografy import Crypt
+from myapp.services.lastfm import LastFmController
+from myapp.services.medium import getDadosFromMedium
+from myapp.services.password import PasswordController
+from myapp.services.projetos import ProjetosController
 import datetime as dt
-from models.Thought import Thought
-from services.thought import ThougthController
-from services.recomendation import RecomendacoesController
-from models.Projeto import Projeto
+from myapp.models.Thought import Thought
+from myapp.services.thought import ThougthController
+from myapp.services.recomendation import RecomendacoesController
+from myapp.models.Projeto import Projeto
+from run import app
+from run import senha
 
-app = Flask(__name__, template_folder='templates', static_folder='static')
-app.secret_key = 'dunno'
 
 
 @app.route("/")
@@ -209,10 +209,6 @@ def error():
   scrobbles = LastFmController.getInfo()    
   return render_template('500.html', song=song, scrobbles=scrobbles, artistaSemana=artistaSemana, toptrack=toptrack), 500
 
-
-if __name__ == '__main__':
-  senha = PasswordController()
-  app.run("0.0.0.0",8080, debug=True)
 
 
   

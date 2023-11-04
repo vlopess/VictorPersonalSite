@@ -46,6 +46,8 @@ class projetoRepository:
                 cur = db.getCursor()
                 cur.execute("SELECT * FROM PROJETO ORDER BY ID DESC LIMIT 1")
                 results = cur.fetchall()
+                if len(results) == 0:
+                    return None
                 result = results[0]
                 projeto = Projeto(result[2], result[1])
                 return projeto
