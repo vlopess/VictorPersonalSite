@@ -24,8 +24,8 @@ class thoughtRepository:
             results = cur.fetchall()
             pensamentos = []
             for result in results:
-                    texto = result[0]
-                    hora = result[1]
+                    texto = result[1]
+                    hora = result[2]
                     time = str(hora)
                     pensamento = Thought(texto, time)
                     pensamentos.append(pensamento)
