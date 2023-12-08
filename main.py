@@ -13,8 +13,9 @@ from models.Thought import Thought
 from services.thought import ThougthController
 from services.recomendation import RecomendacoesController
 from models.Projeto import Projeto
-from run import app
+from myapp import create_app
 
+app = create_app()
 
 
 @app.route("/")
