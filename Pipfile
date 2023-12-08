@@ -1,11 +1,12 @@
 [[source]]
-url = "https://pypi.org/simple"
+url = "htpps://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
 [packages]
+flask = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.10"
+python_version = "3.10.12"

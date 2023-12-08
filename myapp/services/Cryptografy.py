@@ -8,7 +8,7 @@ class Crypt:
         with open('key.key', 'rb') as file:
             self.key = file.read()
         self.cipher_suite = Fernet(self.key)
-    
+    @staticmethod
     def encrypt(self,str_to_enc):
         try:
             encoded_message = str_to_enc.encode()
@@ -23,5 +23,3 @@ class Crypt:
             return decrypted_message.decode()
         except Exception as e:
             raise
-
-    
