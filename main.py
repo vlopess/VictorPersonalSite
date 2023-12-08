@@ -2,17 +2,17 @@ import pathlib
 import sys
 from flask import Flask, render_template, request, make_response, flash
 from flask.helpers import redirect
-from models.Dica import Dica
-from services.Cryptografy import Crypt
-from services.lastfm import LastFmController
-from services.medium import getDadosFromMedium
-from services.password import PasswordController
-from services.projetos import ProjetosController
+from myapp.models.Dica import Dica
+from myapp.services.Cryptografy import Crypt
+from myapp.services.lastfm import LastFmController
+from myapp.services.medium import getDadosFromMedium
+from myapp.services.password import PasswordController
+from myapp.services.projetos import ProjetosController
 import datetime as dt
 from models.Thought import Thought
-from services.thought import ThougthController
-from services.recomendation import RecomendacoesController
-from models.Projeto import Projeto
+from myapp.services.thought import ThougthController
+from myapp.services.recomendation import RecomendacoesController
+from myapp.models.Projeto import Projeto
 from myapp import create_app
 
 app = create_app()
@@ -212,5 +212,5 @@ def error():
 
 if __name__ == '__main__':
   senha = PasswordController()
-  app.run("0.0.0.0",8080, debug=True)
+  app.run("0.0.0.0",8080, debug=False)
   
