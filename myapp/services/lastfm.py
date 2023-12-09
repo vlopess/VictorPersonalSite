@@ -1,6 +1,5 @@
 import requests
 import json
-from requests.exceptions import HTTPError
 from myapp.models.Artist import Artist
 from myapp.models.Song import Song
 from myapp.models.Musica import Musica
