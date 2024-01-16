@@ -44,7 +44,7 @@ class projetoRepository:
         with DBConnectionHandler() as db:
             try:
                 cur = db.getCursor()
-                cur.execute("SELECT * FROM PROJETO ORDER BY ID DESC LIMIT 1")
+                cur.execute("SELECT * FROM PROJETO")
                 results = cur.fetchall()
                 if len(results) == 0:
                     return None

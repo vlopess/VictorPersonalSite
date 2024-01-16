@@ -1,6 +1,6 @@
 import requests
 import json
-from myapp.models.Artigo import Artigo
+from VictorPersonalSite.models.Artigo import Artigo
 
 def getDadosFromMedium():
   try:

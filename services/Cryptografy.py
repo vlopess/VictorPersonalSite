@@ -5,7 +5,7 @@ class Crypt:
     key: bytes
 
     def __init__(self):
-        with open('key.key', 'rb') as file:
+        with open('VictorPersonalSite/key.key', 'rb') as file:
             self.key = file.read()
         self.cipher_suite = Fernet(self.key)
     @staticmethod

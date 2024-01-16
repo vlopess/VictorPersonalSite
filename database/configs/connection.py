@@ -5,7 +5,7 @@ from services.Cryptografy import Crypt
 class DBConnectionHandler:
 
     def __init__(self) -> None:
-        with open('db.key', 'rb') as file:
+        with open('VictorPersonalSite/db.key', 'rb') as file:
             passwordEncoding = file.read().decode()  
             crypt = Crypt()
             password = crypt.decrypt(enc_str=passwordEncoding)     

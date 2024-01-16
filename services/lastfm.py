@@ -1,8 +1,8 @@
 import requests
 import json
-from myapp.models.Artist import Artist
-from myapp.models.Song import Song
-from myapp.models.Musica import Musica
+from VictorPersonalSite.models.Artist import Artist
+from VictorPersonalSite.models.Song import Song
+from VictorPersonalSite.models.Musica import Musica
 
 class LastFmController:
   

@@ -1,21 +1,23 @@
 import pathlib
 import sys
+from wsgiref.simple_server import WSGIRequestHandler
 from flask import Flask, render_template, request, make_response, flash
 from flask.helpers import redirect
-from myapp.models.Dica import Dica
-from myapp.services.Cryptografy import Crypt
-from myapp.services.lastfm import LastFmController
-from myapp.services.medium import getDadosFromMedium
-from myapp.services.password import PasswordController
-from myapp.services.projetos import ProjetosController
+from VictorPersonalSite.models.Dica import Dica
+from VictorPersonalSite.services.Cryptografy import Crypt
+from VictorPersonalSite.services.lastfm import LastFmController
+from VictorPersonalSite.services.medium import getDadosFromMedium
+from VictorPersonalSite.services.password import PasswordController
+from VictorPersonalSite.services.projetos import ProjetosController
 import datetime as dt
 from models.Thought import Thought
-from myapp.services.thought import ThougthController
-from myapp.services.recomendation import RecomendacoesController
-from myapp.models.Projeto import Projeto
-from myapp import create_app
+from VictorPersonalSite.services.thought import ThougthController
+from VictorPersonalSite.services.recomendation import RecomendacoesController
+from VictorPersonalSite.models.Projeto import Projeto
+from VictorPersonalSite import create_app
 
 app = create_app()
+senha = PasswordController()
 
 
 @app.route("/")
@@ -211,6 +213,7 @@ def error():
 
 
 if __name__ == '__main__':
-  senha = PasswordController()
-  app.run("0.0.0.0",8080, debug=False)
-  
+   WSGIRequestHandler.protocol_version = "HTTP/1.1"
+   app.run(host='0.0.0.0', port=5000)
+
+
